@@ -21,17 +21,25 @@ td                       {font-size: 1.3em;}
 .test .skipped           {background-color: #ffff77;}
 .test .failed            {background-color: #ff8888;}
 .group                   {background-color: #cccccc; color: #000000; font-weight: bold;}
+.class-name              {background-color: #B0C4DE ; color: #000000; font-weight: bold;}
+.white-space             {white-space:nowrap;}
 .suiteLinks              {float: right; font-weight: normal; vertical-align: middle;}
 .suiteLinks a            {color: #ffffff; margin-left: .5em;}
 .passRate                {font-weight: bold; text-align: right;}
 .duration                {text-align: right;}
 .thread                  {white-space: nowrap;}
+.auto-wrap				 {word-wrap:break-word;word-break:break-all;}
 
-.resultsTable            {border: 0; width: 100%; margin-top: 1.8em; line-height: 1.7em; border-spacing: 0.1em;}
-.resultsTable .method    {width: 18em;}
+.resultsTable            {border: 0; margin-top: 1.8em; line-height: 1.7em; border-spacing: 0.1em;table-layout: fixed;}
+.resultsTable .method    {width: 8em;}
 .resultsTable .duration  {width: 6em;}
+.resultsTable .caseid  		  {width: 3em;}
+.resultsTable .description    {width: 12em;}
+.resultsTable .param       {width: 20em;font-family: Lucida Console, Monaco, Courier New, monospace; font-size: 1.3em; margin-top: 1.8em;}
+.resultsTable .logOut    {width: 20em;font-family: Lucida Console, Monaco, Courier New, monospace; font-size: 1.3em; margin-top: 1.8em;}
+
 .resultsTable td         {vertical-align: top; padding: 0 1em;}
-.resultsTable th         {padding: 0 .5em;}
+.resultsTable th         {padding: 0.5em;}
 .number                  {text-align: right;}
 .zero                    {font-weight: normal;}
 .columnHeadings          {font-size: 1em;}
@@ -56,11 +64,11 @@ div.test                 {margin-top: 0.1em; clear: right; font-size: 1.3em;}
 .result                  {font-size: 1.1em; vertical-align: middle;}
 .dependency              {font-family: Lucida Console, Monaco, Courier New, monospace; font-weight: bold;}
 .arguments               {font-family: Lucida Console, Monaco, Courier New, monospace; font-weight: bold;}
-.testOutput              {font-family: Lucida Console, Monaco, Courier New, monospace; color: #666666;}
+.testOutput              {font-family: Lucida Console, Monaco, Courier New, monospace}/*delete:color: #666666;*/
 .stackTrace              {font-size: 0.9em; line-height: 1.2em; margin-left: 2em; display: none;}
 .stackTrace .stackTrace  {font-size: inherit;}
 
-.description             {border-bottom: 1px dotted #006699;}
+.bottomLine             {border-bottom: 1px dotted #006699;}/* 下划线*/
 
 #meta                    {font-size: 1em; text-align: right; float: right;}
 #systemInfo              {color: #666666;}

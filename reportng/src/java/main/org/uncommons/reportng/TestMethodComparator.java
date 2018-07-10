@@ -25,6 +25,8 @@ import org.testng.ITestNGMethod;
  */
 class TestMethodComparator implements Comparator<ITestNGMethod>
 {
+    TestMethodComparator() {
+    }
     public int compare(ITestNGMethod method1,
                        ITestNGMethod method2)
     {

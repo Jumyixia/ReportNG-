@@ -11,15 +11,21 @@
       #set ($testInstanceName = " ($testResult.testName)")
     #end
     #if ($testResult.method.description && $testResult.method.description.length() > 0)
-      <span class="description" title="$testResult.method.description">$testResult.name$testInstanceName</span>
+      <span class="description" title="$testResult.method.description">$testResult.name$testInstanceName ($testResult.method.description)</span>
     #else
       $testResult.name$testInstanceName
     #end
   </td>
-  <td class="duration">
-    $utils.formatDuration($testResult.startMillis, $testResult.endMillis)s
-  </td>
-  <td class="result">
+    <td class="duration">
+      $utils.formatDuration($testResult.startMillis, $testResult.endMillis)s
+    </td>
+    <td class="caseid">
+      $utils.getCaseId($testResult)
+    </td>
+    <td class="bottomLine auto-wrap">
+      $utils.getDescription($testResult)
+    </td>
+  <td class="bottomLine auto-wrap">
     ## Display the dependencies for skipped test methods.
     #if ($testResult.status == 3) ## 3 means skipped.
       #if( $utils.hasDependentGroups($testResult) )
@@ -39,8 +45,12 @@
 
     #if ($utils.hasArguments($testResult))
       <i>$messages.getString("methodArguments"): </i><span class="arguments">$utils.getArguments($testResult)</span><br />
-    #end
 
+    #end
+      #set ($id = $id + 1)
+  </td>
+
+    <td class="bottomLine auto-wrap">
     ## Show logger output for the test.
     #set ($output = $utils.getTestOutput($testResult))
     #if ($output.size() > 0)
@@ -74,7 +84,7 @@
       #end
     </div>
     #end
-    #set ($id = $id + 1)
+
   </td>
 </tr>
 #end

@@ -24,8 +24,14 @@ import org.testng.ITestResult;
  */
 class TestResultComparator implements Comparator<ITestResult>
 {
-    public int compare(ITestResult result1, ITestResult result2)
-    {
-        return result1.getName().compareTo(result2.getName());
+    TestResultComparator() {
+    }
+
+    public int compare(ITestResult result1, ITestResult result2) {
+        // 按照名称排序显示
+        // return result1.getName().compareTo(result2.getName());
+
+        // 按照运行时间排序显示
+        return result1.getStartMillis() < result2.getStartMillis() ? -1 : 1;
     }
 }

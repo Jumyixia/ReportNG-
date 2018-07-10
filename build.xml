@@ -3,7 +3,6 @@
          default="dist"
          basedir=".">
   <description>Reporting plug-in for TestNG.</description>
-
   
 <!-- ==================================================================
      GLOBAL BUILD PROPERTIES
@@ -26,7 +25,7 @@
            resource="org/uncommons/antlib/antlib.xml"
            classpathref="tool.path"/>
 
-  <property name="version" value="1.1.5"/>
+  <property name="version" value="1.1.5-jum"/>
   <property name="artifact.identifier" value="reportng-${version}"/>
 
   <!-- This is the minimum coverage percentage (for both lines and
@@ -65,6 +64,12 @@
     <uncommons:jar module="reportng"
                    jarfile="${artifact.identifier}.jar"
                    classpath="velocity-dep-1.4.jar" />
+    <uncommons:jar module="reportng"
+                   jarfile="${artifact.identifier}.jar"
+                   classpath="selenium-api-2.45.jar" />
+    <uncommons:jar module="reportng"
+                   jarfile="${artifact.identifier}.jar"
+                   classpath="commons-io-2.4.jar" />
   </target>
 
 

@@ -43,7 +43,9 @@ public class ReportNGUtils
 {
     private static final NumberFormat DURATION_FORMAT = new DecimalFormat("#0.000");
     private static final NumberFormat PERCENTAGE_FORMAT = new DecimalFormat("#0.00%");
-
+    private static String MethodName = null;
+    private static int caseid = 0;
+    private static int Row_num = 0;
     /**
      * Returns the aggregate of the elapsed times for each test result.
      * @param context The test results.
@@ -147,6 +149,52 @@ public class ReportNGUtils
             argumentStrings.add(renderArgument(argument));
         }
         return commaSeparate(argumentStrings);
+    }
+
+    public String getCaseId(ITestResult result) {
+        Object[] arguments = result.getParameters();
+        if (arguments.length == 0) {
+            return "";
+        } else {
+            Object argument = arguments[0];
+            if (MethodName == null) {
+                MethodName = result.getName();
+            }
+
+            if (result.getName().equalsIgnoreCase(MethodName)) {
+                ++caseid;
+            } else {
+                MethodName = null;
+                caseid = 1;
+            }
+
+            if (argument instanceof String) {
+                return Integer.toString(caseid);
+            } else if (argument instanceof Map) {
+                Map<String, String> m = (Map)argument;
+                return (String)m.get("caseid");
+            } else {
+                return "";
+            }
+        }
+    }
+
+    public String getDescription(ITestResult result) {
+        Object[] arguments = result.getParameters();
+        if (arguments.length == 0) {
+            return "";
+        } else {
+            Object argument = arguments[0];
+            if (argument instanceof String) {
+                String desc = (String)argument;
+                return desc;
+            } else if (argument instanceof Map) {
+                Map<String, String> m = (Map)argument;
+                return (String)m.get("description");
+            } else {
+                return "";
+            }
+        }
     }
 
 
