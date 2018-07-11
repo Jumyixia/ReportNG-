@@ -102,31 +102,6 @@
 #if ($passedTests.size() > 0)
 <table class="resultsTable">
     <thead>
-    <tr onclick="toggleShow('skipped_tests')">
-        <th colspan="6" class="header skipped">$messages.getString("skippedTests")</th>
-    </tr>
-    </thead>
-    <tbody width="100%" id="skipped_tests" style="display: '';">
-      #foreach ($testClass in $skippedTests.keySet())
-      <tr><td colspan="6" class="group white-space" >$testClass.name</td></tr>
-      <tr>
-          <td colspan="1" class="group white-space">$messages.getString("testMethod")</td>
-          <td colspan="1" class="group white-space">$messages.getString("duration")</td>
-          <td colspan="1" class="group white-space">$messages.getString("caseid")</td>
-          <td colspan="1" class="group white-space">$messages.getString("description")</td>
-          <td colspan="1" class="group white-space">$messages.getString("param")</td>
-          <td colspan="1" class="group white-space">$messages.getString("logOut")</td>
-      </tr>
-        #set ($classResults = $skippedTests.get($testClass))
-        #parse ("org/uncommons/reportng/templates/html/class-results.html.vm")
-      #end
-    </tbody>
-</table>
-#end
-
-#if ($passedTests.size() > 0)
-<table class="resultsTable">
-    <thead>
       <tr onclick="toggleShow('passed_tests')">
           <th colspan="6" class="header passed">$messages.getString("passedTests")</th>
       </tr>

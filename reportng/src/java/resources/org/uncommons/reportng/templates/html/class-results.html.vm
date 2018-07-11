@@ -47,7 +47,7 @@
       <i>$messages.getString("methodArguments"): </i><span class="arguments">$utils.getArguments($testResult)</span><br />
 
     #end
-      #set ($id = $id + 1)
+
   </td>
 
     <td class="bottomLine auto-wrap">
@@ -84,7 +84,7 @@
       #end
     </div>
     #end
-
+      #set ($id = $id + 1)
   </td>
 </tr>
 #end
